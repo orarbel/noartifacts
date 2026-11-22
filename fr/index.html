@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zéro artefact</title>
+<meta name="description" content="Ne m'envoie pas le truc que ton IA a fait. Envoie-moi ce que tu penses.">
+<link rel="canonical" href="https://noartifacts.com/fr/">
+<link rel="alternate" hreflang="en" href="https://noartifacts.com/">
+<link rel="alternate" hreflang="es" href="https://noartifacts.com/es/">
+<link rel="alternate" hreflang="pt" href="https://noartifacts.com/pt/">
+<link rel="alternate" hreflang="fr" href="https://noartifacts.com/fr/">
+<link rel="alternate" hreflang="de" href="https://noartifacts.com/de/">
+<link rel="alternate" hreflang="it" href="https://noartifacts.com/it/">
+<link rel="alternate" hreflang="ru" href="https://noartifacts.com/ru/">
+<link rel="alternate" hreflang="ja" href="https://noartifacts.com/ja/">
+<link rel="alternate" hreflang="zh" href="https://noartifacts.com/zh/">
+<link rel="alternate" hreflang="ko" href="https://noartifacts.com/ko/">
+<link rel="alternate" hreflang="hi" href="https://noartifacts.com/hi/">
+<link rel="alternate" hreflang="ar" href="https://noartifacts.com/ar/">
+<link rel="alternate" hreflang="he" href="https://noartifacts.com/he/">
+<link rel="alternate" hreflang="x-default" href="https://noartifacts.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="no artifacts">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="zéro artefact">
+<meta property="og:description" content="Ne m'envoie pas le truc que ton IA a fait. Envoie-moi ce que tu penses.">
+<meta property="og:url" content="https://noartifacts.com/fr/">
+<meta property="og:image" content="https://noartifacts.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="no artifacts, with the word artifacts struck through in red">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="zéro artefact">
+<meta name="twitter:description" content="Ne m'envoie pas le truc que ton IA a fait. Envoie-moi ce que tu penses.">
+<meta name="twitter:url" content="https://noartifacts.com/fr/">
+<meta name="twitter:image" content="https://noartifacts.com/og.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f6f3ec'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='44' text-anchor='middle' fill='%231a1a1a'%3Ea%3C/text%3E%3Cline x1='12' y1='34' x2='52' y2='34' stroke='%23b3412f' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f3ec; --ink:#1a1a1a; --muted:#6b675f; --line:#dcd6ca;
+    --bad:#b3412f; --good:#2f6b46; --card:#fffdf8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141311; --ink:#ece8df; --muted:#9a948a; --line:#2e2b27; --bad:#e0735f; --good:#6fbf8b; --card:#1c1b18; }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink)}
+  body{font:17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  main{max-width:680px;margin:0 auto;padding:72px 24px 96px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(64px,14vw,120px);line-height:.9;margin:0 0 28px;letter-spacing:-.02em;overflow-wrap:anywhere}
+  h1 s{text-decoration-thickness:6px;text-decoration-color:var(--bad)}
+  .lede{font-size:22px;line-height:1.45;margin:0 0 56px}
+  h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:34px;margin:64px 0 16px;line-height:1.1}
+  p{margin:0 0 16px}
+  .muted{color:var(--muted)}
+  .label{font:500 12px/1 "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .label.bad{color:var(--bad)} .label.good{color:var(--good)}
+  .chat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 28px}
+  .msg{display:flex;gap:12px;margin:0 0 14px}
+  .msg:last-child{margin:0}
+  .av{flex:none;width:36px;height:36px;border-radius:8px;object-fit:cover;background:#c9b99a}
+  .who{font-weight:600;font-size:15px} .who span{font-weight:400;color:var(--muted);font-size:13px;margin-inline-start:6px}
+  .txt{font-size:15.5px}
+  .link{color:#3b6fd4;text-decoration:underline;word-break:break-all}
+  .preview{margin-top:8px;border-inline-start:3px solid #c9b99a;padding:8px 12px;font-size:14px;background:rgba(0,0,0,.03);border-radius:0 6px 6px 0}
+  [dir=rtl] .preview{border-radius:6px 0 0 6px}
+  .preview b{display:block}
+  ol{padding-inline-start:22px;margin:0 0 16px} li{margin:0 0 12px}
+  .rule{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid var(--line)}
+  .rule:last-of-type{border-bottom:1px solid var(--line)}
+  .rule .n{font:500 13px "JetBrains Mono",monospace;color:var(--muted);padding-top:4px}
+  .rule b{font-weight:600}
+  .share{margin-top:56px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  button{font:500 15px Inter,system-ui,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:12px 20px;cursor:pointer}
+  button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  #status{font-size:14px;color:var(--muted)}
+  .langs{margin-top:56px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+  .langs a{color:var(--muted);text-decoration:none}
+  .langs a:hover{color:var(--ink);text-decoration:underline}
+  .langs a[aria-current]{color:var(--ink);font-weight:600}
+  footer{margin-top:40px;font-size:14px;color:var(--muted)}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<main>
+  <h1>zéro <s>artefact</s></h1>
+  <p class="lede">S'il te plaît, ne m'envoie pas le truc que ton IA a fait. Envoie-moi ce que <em>toi</em>, tu penses.</p>
+
+  <p class="label bad">✕ À éviter</p>
+  <div class="chat">
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
+      <div class="who">Dana <span>10:42</span></div>
+      <div class="txt">salut ! j'ai rassemblé quelques idées sur la stratégie du T3, ton avis m'intéresse 🙏<br>
+        <span class="link">claude.ai/artifact/8f3k2...</span>
+        <div class="preview"><b>🚀 Stratégie de croissance T3 : un cadre complet</b>Synthèse · Enseignements clés · Piliers stratégiques · Matrice des risques · Prochaines étapes · Annexes A–F</div>
+      </div>
+    </div></div>
+    <div class="msg"><img class="av" src="/img/you.jpg" alt="" width="36" height="36"><div>
+      <div class="who">Toi <span>10:58</span></div>
+      <div class="txt">tu es d'accord avec quelle partie, toi ?</div>
+    </div></div>
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
+      <div class="who">Dana <span>11:31</span></div>
+      <div class="txt">pas encore tout lu, pour être honnête</div>
+    </div></div>
+  </div>
+
+  <p class="label good">✓ Fais plutôt ça</p>
+  <div class="chat">
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
+      <div class="who">Dana <span>10:42</span></div>
+      <div class="txt">Je veux baisser le budget LinkedIn de 30 % et le passer sur Google. Là-bas, notre coût par lead est deux fois plus élevé. Risque : on perd le pipeline grands comptes. On tranche d'ici jeudi ?</div>
+    </div></div>
+  </div>
+
+  <h2>Pourquoi</h2>
+  <ol>
+    <li><b>Ça te coûte dix secondes et moi vingt minutes.</b> Générer est gratuit. Lire, non. Tu viens de me refiler le travail.</li>
+    <li><b>La longueur n'est pas de la réflexion.</b> Six sections et une matrice des risques me disent que tu as appuyé sur un bouton, pas que tu as un avis.</li>
+    <li><b>Je ne sais pas ce qui vient de toi.</b> Quelles affirmations as-tu vérifiées ? Lesquelles crois-tu ? Si tu ne le sais pas, moi encore moins.</li>
+    <li><b>J'ai le même outil.</b> Si je voulais l'avis de Claude, je demanderais à Claude. C'est à toi que j'ai demandé.</li>
+  </ol>
+
+  <h2>Les règles</h2>
+  <div class="rule"><div class="n">01</div><div><b>Envoie la conclusion.</b> <span class="muted">Trois phrases. Si tu n'arrives pas à les écrire, tu n'as pas fini de réfléchir.</span></div></div>
+  <div class="rule"><div class="n">02</div><div><b>Envoie le prompt, pas le résultat.</b> <span class="muted">La question que tu as posée est souvent plus utile que la réponse obtenue.</span></div></div>
+  <div class="rule"><div class="n">03</div><div><b>Si tu dois l'envoyer, pointe.</b> <span class="muted">« Je suis d'accord avec la section 3. Ignore le reste. » Là, c'est utile.</span></div></div>
+  <div class="rule"><div class="n">04</div><div><b>Lis-le avant moi.</b> <span class="muted">En entier. Si ça t'a ennuyé, ça m'ennuiera aussi.</span></div></div>
+
+  <div class="share">
+    <button id="copy">Copier le lien de cette page</button>
+    <button class="ghost" id="copymsg">Copier une réponse polie</button>
+    <span id="status" aria-live="polite"></span>
+  </div>
+
+  <nav class="langs" aria-label="Languages">
+    <a href="/" hreflang="en" lang="en">English</a>
+    <a href="/es/" hreflang="es" lang="es">Español</a>
+    <a href="/pt/" hreflang="pt" lang="pt">Português</a>
+    <a href="/fr/" hreflang="fr" lang="fr" aria-current="page">Français</a>
+    <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+    <a href="/it/" hreflang="it" lang="it">Italiano</a>
+    <a href="/ru/" hreflang="ru" lang="ru">Русский</a>
+    <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
+    <a href="/zh/" hreflang="zh" lang="zh">中文</a>
+    <a href="/ko/" hreflang="ko" lang="ko">한국어</a>
+    <a href="/hi/" hreflang="hi" lang="hi">हिन्दी</a>
+    <a href="/ar/" hreflang="ar" lang="ar">العربية</a>
+    <a href="/he/" hreflang="he" lang="he">עברית</a>
+  </nav>
+
+  <footer>Oui, cette page a été faite avec Claude. C'est une page, elle dit une seule chose, et je l'ai lue avant de l'envoyer. <a href="https://github.com/orarbel/noartifacts">Code source sur GitHub</a>.</footer>
+</main>
+<script>
+  const URL_CANONICAL = 'https://noartifacts.com';
+  const T = {"reply": "Merci ! Avant que je lise : ton avis en 3 phrases ? ", "copied": "Lien copié.", "reply_copied": "Réponse copiée.", "blocked": "Copie bloquée. Sélectionne la barre d'adresse."};
+  const status = document.getElementById('status');
+  async function copy(text, msg){
+    try{ await navigator.clipboard.writeText(text); status.textContent = msg; }
+    catch(e){ status.textContent = T.blocked; }
+    setTimeout(()=>status.textContent='', 2500);
+  }
+  document.getElementById('copy').onclick = () => copy(URL_CANONICAL, T.copied);
+  document.getElementById('copymsg').onclick = () => copy(T.reply + URL_CANONICAL, T.reply_copied);
+  document.querySelectorAll('.langs a').forEach(a => a.addEventListener('click', () => {
+    try{ localStorage.setItem('lang', a.hreflang); }catch(e){}
+  }));
+</script>
+</body>
+</html>
