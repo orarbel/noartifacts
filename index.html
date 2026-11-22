@@ -1,13 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>no artifacts</title>
+<script>
+(function(){
+  var L=["es", "pt", "fr", "de", "it", "ru", "ja", "zh", "ko", "hi", "ar", "he"], pick=null;
+  try{ pick=localStorage.getItem('lang'); }catch(e){}
+  if(pick){ if(pick!=='en' && L.indexOf(pick)>-1) location.replace('/'+pick+'/'); return; }
+  var prefs=navigator.languages||[navigator.language||''];
+  for(var i=0;i<prefs.length;i++){
+    var c=(prefs[i]||'').toLowerCase().split('-')[0]; if(c==='iw') c='he';
+    if(c==='en') return;
+    if(L.indexOf(c)>-1){ location.replace('/'+c+'/'); return; }
+  }
+})();
+</script>
 <meta name="description" content="Don't send me the thing your AI made. Send me what you think.">
 <link rel="canonical" href="https://noartifacts.com/">
+<link rel="alternate" hreflang="en" href="https://noartifacts.com/">
+<link rel="alternate" hreflang="es" href="https://noartifacts.com/es/">
+<link rel="alternate" hreflang="pt" href="https://noartifacts.com/pt/">
+<link rel="alternate" hreflang="fr" href="https://noartifacts.com/fr/">
+<link rel="alternate" hreflang="de" href="https://noartifacts.com/de/">
+<link rel="alternate" hreflang="it" href="https://noartifacts.com/it/">
+<link rel="alternate" hreflang="ru" href="https://noartifacts.com/ru/">
+<link rel="alternate" hreflang="ja" href="https://noartifacts.com/ja/">
+<link rel="alternate" hreflang="zh" href="https://noartifacts.com/zh/">
+<link rel="alternate" hreflang="ko" href="https://noartifacts.com/ko/">
+<link rel="alternate" hreflang="hi" href="https://noartifacts.com/hi/">
+<link rel="alternate" hreflang="ar" href="https://noartifacts.com/ar/">
+<link rel="alternate" hreflang="he" href="https://noartifacts.com/he/">
+<link rel="alternate" hreflang="x-default" href="https://noartifacts.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="no artifacts">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="no artifacts">
 <meta property="og:description" content="Don't send me the thing your AI made. Send me what you think.">
 <meta property="og:url" content="https://noartifacts.com">
@@ -35,7 +63,7 @@
   html,body{margin:0;background:var(--bg);color:var(--ink)}
   body{font:17px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   main{max-width:680px;margin:0 auto;padding:72px 24px 96px}
-  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(64px,14vw,120px);line-height:.9;margin:0 0 28px;letter-spacing:-.02em}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(64px,14vw,120px);line-height:.9;margin:0 0 28px;letter-spacing:-.02em;overflow-wrap:anywhere}
   h1 s{text-decoration-thickness:6px;text-decoration-color:var(--bad)}
   .lede{font-size:22px;line-height:1.45;margin:0 0 56px}
   h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:34px;margin:64px 0 16px;line-height:1.1}
@@ -46,23 +74,28 @@
   .chat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:0 0 28px}
   .msg{display:flex;gap:12px;margin:0 0 14px}
   .msg:last-child{margin:0}
-  .av{flex:none;width:36px;height:36px;border-radius:8px;background:#c9b99a;display:grid;place-items:center;font:600 14px Inter;color:#3a3226}
-  .av.me{background:#9fb4c9;color:#1f2b37}
-  .who{font-weight:600;font-size:15px} .who span{font-weight:400;color:var(--muted);font-size:13px;margin-left:6px}
+  .av{flex:none;width:36px;height:36px;border-radius:8px;object-fit:cover;background:#c9b99a}
+  .who{font-weight:600;font-size:15px} .who span{font-weight:400;color:var(--muted);font-size:13px;margin-inline-start:6px}
   .txt{font-size:15.5px}
   .link{color:#3b6fd4;text-decoration:underline;word-break:break-all}
-  .preview{margin-top:8px;border-left:3px solid #c9b99a;padding:8px 12px;font-size:14px;background:rgba(0,0,0,.03);border-radius:0 6px 6px 0}
+  .preview{margin-top:8px;border-inline-start:3px solid #c9b99a;padding:8px 12px;font-size:14px;background:rgba(0,0,0,.03);border-radius:0 6px 6px 0}
+  [dir=rtl] .preview{border-radius:6px 0 0 6px}
   .preview b{display:block}
-  ol{padding-left:22px;margin:0 0 16px} li{margin:0 0 12px}
+  ol{padding-inline-start:22px;margin:0 0 16px} li{margin:0 0 12px}
   .rule{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:18px 0;border-top:1px solid var(--line)}
   .rule:last-of-type{border-bottom:1px solid var(--line)}
   .rule .n{font:500 13px "JetBrains Mono",monospace;color:var(--muted);padding-top:4px}
   .rule b{font-weight:600}
   .share{margin-top:56px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  button{font:500 15px Inter;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:12px 20px;cursor:pointer}
+  button{font:500 15px Inter,system-ui,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:12px 20px;cursor:pointer}
   button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
   #status{font-size:14px;color:var(--muted)}
-  footer{margin-top:80px;font-size:14px;color:var(--muted)}
+  .langs{margin-top:56px;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px}
+  .langs a{color:var(--muted);text-decoration:none}
+  .langs a:hover{color:var(--ink);text-decoration:underline}
+  .langs a[aria-current]{color:var(--ink);font-weight:600}
+  footer{margin-top:40px;font-size:14px;color:var(--muted)}
+  footer a{color:inherit}
 </style>
 </head>
 <body>
@@ -72,18 +105,18 @@
 
   <p class="label bad">✕ Please don't</p>
   <div class="chat">
-    <div class="msg"><div class="av">D</div><div>
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
       <div class="who">Dana <span>10:42</span></div>
-      <div class="txt">hey! had Claude put together some thoughts on Q3 strategy, would love your take 🙏<br>
+      <div class="txt">hey! I put together some thoughts on Q3 strategy, would love your take 🙏<br>
         <span class="link">claude.ai/artifact/8f3k2...</span>
         <div class="preview"><b>🚀 Q3 Growth Strategy: A Comprehensive Framework</b>Executive Summary · Key Insights · Strategic Pillars · Risk Matrix · Next Steps · Appendix A–F</div>
       </div>
     </div></div>
-    <div class="msg"><div class="av me">Me</div><div>
+    <div class="msg"><img class="av" src="/img/you.jpg" alt="" width="36" height="36"><div>
       <div class="who">You <span>10:58</span></div>
       <div class="txt">which part do you actually agree with?</div>
     </div></div>
-    <div class="msg"><div class="av">D</div><div>
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
       <div class="who">Dana <span>11:31</span></div>
       <div class="txt">haven't read it all yet tbh</div>
     </div></div>
@@ -91,7 +124,7 @@
 
   <p class="label good">✓ Do this instead</p>
   <div class="chat">
-    <div class="msg"><div class="av">D</div><div>
+    <div class="msg"><img class="av" src="/img/dana.jpg" alt="" width="36" height="36"><div>
       <div class="who">Dana <span>10:42</span></div>
       <div class="txt">I want to cut LinkedIn spend 30% and move it to Google. Our cost per lead there is 2x. Risk: we lose the enterprise pipeline. Can we decide by Thursday?</div>
     </div></div>
@@ -100,9 +133,8 @@
   <h2>Why</h2>
   <ol>
     <li><b>It costs you ten seconds and me twenty minutes.</b> Generating is free. Reading isn't. You just moved the work to me.</li>
-    <li><b>Length is not thinking.</b> Six sections and a risk matrix tell me you pressed a button, not that you have an opinion.</li>
+    <li><b>Length is not thinking.</b> Six sections and a risk matrix tell me you pressed a button, not that you have something to say.</li>
     <li><b>I can't tell what's yours.</b> Which claims did you check? Which ones do you believe? If you don't know, I definitely don't.</li>
-    <li><b>I have the same tool.</b> If I wanted Claude's take, I'd ask Claude. I asked you.</li>
   </ol>
 
   <h2>The rules</h2>
@@ -117,20 +149,38 @@
     <span id="status" aria-live="polite"></span>
   </div>
 
-  <footer>Yes, this page was made with Claude. It's one page, it says one thing, and I read it before sending.</footer>
+  <nav class="langs" aria-label="Languages">
+    <a href="/" hreflang="en" lang="en" aria-current="page">English</a>
+    <a href="/es/" hreflang="es" lang="es">Español</a>
+    <a href="/pt/" hreflang="pt" lang="pt">Português</a>
+    <a href="/fr/" hreflang="fr" lang="fr">Français</a>
+    <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+    <a href="/it/" hreflang="it" lang="it">Italiano</a>
+    <a href="/ru/" hreflang="ru" lang="ru">Русский</a>
+    <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
+    <a href="/zh/" hreflang="zh" lang="zh">中文</a>
+    <a href="/ko/" hreflang="ko" lang="ko">한국어</a>
+    <a href="/hi/" hreflang="hi" lang="hi">हिन्दी</a>
+    <a href="/ar/" hreflang="ar" lang="ar">العربية</a>
+    <a href="/he/" hreflang="he" lang="he">עברית</a>
+  </nav>
+
+  <footer>Yes, this page was made with Claude. It's one page, it says one thing, and I read it before sending. <a href="https://github.com/orarbel/noartifacts">Source on GitHub</a>.</footer>
 </main>
 <script>
   const URL_CANONICAL = 'https://noartifacts.com';
+  const T = {"reply": "Thanks! Before I read it: what's your take in 3 sentences? ", "copied": "Link copied.", "reply_copied": "Reply copied.", "blocked": "Copy blocked. Select the address bar instead."};
   const status = document.getElementById('status');
   async function copy(text, msg){
     try{ await navigator.clipboard.writeText(text); status.textContent = msg; }
-    catch(e){ status.textContent = 'Copy blocked. Select the address bar instead.'; }
+    catch(e){ status.textContent = T.blocked; }
     setTimeout(()=>status.textContent='', 2500);
   }
-  document.getElementById('copy').onclick = () => copy(URL_CANONICAL, 'Link copied.');
-  document.getElementById('copymsg').onclick = () => copy(
-    "Thanks! Before I read it: what's your take in 3 sentences? " + URL_CANONICAL,
-    'Reply copied.');
+  document.getElementById('copy').onclick = () => copy(URL_CANONICAL, T.copied);
+  document.getElementById('copymsg').onclick = () => copy(T.reply + URL_CANONICAL, T.reply_copied);
+  document.querySelectorAll('.langs a').forEach(a => a.addEventListener('click', () => {
+    try{ localStorage.setItem('lang', a.hreflang); }catch(e){}
+  }));
 </script>
 </body>
 </html>
