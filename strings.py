@@ -1,6 +1,7 @@
 # All page copy, one dict per language. Edit here, then run: python3 build.py
 LANGS = {
 "en": dict(
+    inspired="Inspired by {}.",
     name="English", locale="en_US",
     title="no artifacts", desc="Don't send me the thing your AI made. Send me what you think.",
     h1="no <s>artifacts</s>",
@@ -29,6 +30,7 @@ LANGS = {
     source="Source on GitHub",
 ),
 "es": dict(
+    inspired="Inspirado en {}.",
     name="Español", locale="es_ES",
     title="sin artefactos", desc="No me mandes lo que hizo tu IA. Mándame lo que piensas tú.",
     h1="sin <s>artefactos</s>",
@@ -57,6 +59,7 @@ LANGS = {
     source="Código en GitHub",
 ),
 "pt": dict(
+    inspired="Inspirado no {}.",
     name="Português", locale="pt_BR",
     title="sem artefatos", desc="Não me mande o que a sua IA fez. Me mande o que você pensa.",
     h1="sem <s>artefatos</s>",
@@ -85,6 +88,7 @@ LANGS = {
     source="Código no GitHub",
 ),
 "fr": dict(
+    inspired="Inspiré de {}.",
     name="Français", locale="fr_FR",
     title="zéro artefact", desc="Ne m'envoie pas le truc que ton IA a fait. Envoie-moi ce que tu penses.",
     h1="zéro <s>artefact</s>",
@@ -113,6 +117,7 @@ LANGS = {
     source="Code source sur GitHub",
 ),
 "de": dict(
+    inspired="Inspiriert von {}.",
     name="Deutsch", locale="de_DE",
     title="keine Artefakte", desc="Schick mir nicht das, was deine KI gemacht hat. Schick mir, was du denkst.",
     h1="keine <s>Artefakte</s>",
@@ -141,6 +146,7 @@ LANGS = {
     source="Quellcode auf GitHub",
 ),
 "it": dict(
+    inspired="Ispirato a {}.",
     name="Italiano", locale="it_IT",
     title="niente artefatti", desc="Non mandarmi la cosa che ha fatto la tua IA. Mandami quello che pensi tu.",
     h1="niente <s>artefatti</s>",
@@ -169,6 +175,7 @@ LANGS = {
     source="Codice su GitHub",
 ),
 "ru": dict(
+    inspired="Вдохновлено {}.",
     name="Русский", locale="ru_RU",
     title="без артефактов", desc="Не присылай мне то, что сделал твой ИИ. Пришли мне, что думаешь ты.",
     h1="без <s>артефактов</s>",
@@ -197,6 +204,7 @@ LANGS = {
     source="Исходный код на GitHub",
 ),
 "ja": dict(
+    inspired="{}に触発されました。",
     name="日本語", locale="ja_JP",
     title="アーティファクトお断り", desc="AIが作ったものを送らないで。あなたの考えを送って。",
     h1="<s>アーティファクト</s>お断り",
@@ -225,6 +233,7 @@ LANGS = {
     source="GitHubでソースを見る",
 ),
 "zh": dict(
+    inspired="灵感来自 {}。",
     name="中文", locale="zh_CN",
     title="不要 AI 产物", desc="别把你的 AI 做的东西发给我。发给我你自己的想法。",
     h1="不要<s>AI 产物</s>",
@@ -253,6 +262,7 @@ LANGS = {
     source="GitHub 上的源代码",
 ),
 "ko": dict(
+    inspired="{}에서 영감을 받았어요.",
     name="한국어", locale="ko_KR",
     title="아티팩트 사절", desc="AI가 만든 걸 보내지 마세요. 당신의 생각을 보내 주세요.",
     h1="<s>아티팩트</s> 사절",
@@ -281,6 +291,7 @@ LANGS = {
     source="GitHub에서 소스 보기",
 ),
 "hi": dict(
+    inspired="{} से प्रेरित।",
     name="हिन्दी", locale="hi_IN",
     title="आर्टिफ़ैक्ट नहीं", desc="मुझे वो चीज़ मत भेजो जो तुम्हारे AI ने बनाई है। मुझे वो भेजो जो तुम सोचते हो।",
     h1="<s>आर्टिफ़ैक्ट</s> नहीं",
@@ -309,6 +320,7 @@ LANGS = {
     source="GitHub पर सोर्स",
 ),
 "ar": dict(
+    inspired="مستوحى من {}.",
     name="العربية", locale="ar_AR", dir="rtl",
     title="لا للمخرجات", desc="لا ترسل لي ما صنعه الذكاء الاصطناعي. أرسل لي ما تفكر فيه أنت.",
     h1="لا <s>للمخرجات</s>",
@@ -337,6 +349,7 @@ LANGS = {
     source="الشيفرة على GitHub",
 ),
 "he": dict(
+    inspired="בהשראת {}.",
     name="עברית", locale="he_IL", dir="rtl",
     title="בלי ארטיפקטים", desc="אל תשלחו לי את מה שה‑AI שלכם הכין. שלחו לי מה אתם חושבים.",
     h1="בלי <s>ארטיפקטים</s>",
