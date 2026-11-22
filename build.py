@@ -157,7 +157,7 @@ $rules
 $langs
   </nav>
 
-  <footer>$footer <a href="https://github.com/orarbel/noartifacts">$source</a>.</footer>
+  <footer>$footer <a href="https://github.com/orarbel/noartifacts">$source</a>. $inspired</footer>
 </main>
 <script>
   const URL_CANONICAL = 'https://noartifacts.com';
@@ -197,7 +197,8 @@ def build(code):
         alternates=alternates, langs=langs, why=why, rules=rules, js=js,
         **{k: s[k] for k in ("h1", "lede", "dont", "instead", "dana", "you", "chat1", "preview_title",
                              "preview_sections", "me", "dana_reply", "good", "why_h", "rules_h",
-                             "btn_copy", "btn_reply", "footer", "source")})
+                             "btn_copy", "btn_reply", "footer", "source")},
+        inspired=s["inspired"].format('<a href="https://nohello.net">nohello.net</a>'))
 
 if __name__ == "__main__":
     root = os.path.dirname(os.path.abspath(__file__))
